@@ -1,25 +1,23 @@
-import React from 'react';
 import { Image } from 'react-native';
-import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 
-import HomeScreen from './src/components/HomeScreen';
-import CalendarScreen from './src/components/CalendarScreen';
-import SearchScreen from './src/components/SearchScreen';
-import TagScreen from './src/components/TagScreen';
+import HomeScreen from './components/HomeScreen';
+import CalendarScreen from './components/CalendarScreen';
+import SearchScreen from './components/SearchScreen';
+import TagScreen from './components/TagScreen';
 
 const icons = {
-  home: require('./src/assets/bottom-bar/Home.png'),
-  calendar: require('./src/assets/bottom-bar/Calendar.png'),
-  search: require('./src/assets/bottom-bar/Search.png'), 
-  tag: require('./src/assets/bottom-bar/Tag.png'),
-  homeFocused: require('./src/assets/bottom-bar/Home-Active.png'),
-  calendarFocused: require('./src/assets/bottom-bar/Calendar-Active.png'),
-  searchFocused: require('./src/assets/bottom-bar/Search-Active.png'), 
-  tagFocused: require('./src/assets/bottom-bar/Tag-Active.png'),
+  home: require('./assets/bottom-bar/Home.png'),
+  calendar: require('./assets/bottom-bar/Calendar.png'),
+  search: require('./assets/bottom-bar/Search.png'), 
+  tag: require('./assets/bottom-bar/Tag.png'),
+  homeFocused: require('./assets/bottom-bar/Home-Active.png'),
+  calendarFocused: require('./assets/bottom-bar/Calendar-Active.png'),
+  searchFocused: require('./assets/bottom-bar/Search-Active.png'), 
+  tagFocused: require('./assets/bottom-bar/Tag-Active.png'),
 }
 
-const AppNavigator = createBottomTabNavigator({
+export const AppNavigator = createBottomTabNavigator({
   Home: {
     screen: HomeScreen,
     path: '/',  
@@ -76,11 +74,3 @@ const AppNavigator = createBottomTabNavigator({
     showLabel: false
   }
 });
-
-const AppContainer = createAppContainer(AppNavigator);
-
-export default class App extends React.Component {
-  render() {
-    return ( <AppContainer/> );    
-  }
-}
