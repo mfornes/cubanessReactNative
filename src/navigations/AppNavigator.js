@@ -3,20 +3,20 @@ import { Image } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 
-import HomeScreen from './src/components/HomeScreen';
-import CalendarScreen from './src/components/CalendarScreen';
-import SearchScreen from './src/components/SearchScreen';
-import TagScreen from './src/components/TagScreen';
+import HomeScreen from '../screens/HomeScreen';
+import CalendarScreen from '../screens/CalendarScreen';
+import SearchScreen from '../screens/SearchScreen';
+import TagScreen from '../screens/TagScreen';
 
 const icons = {
-  home: require('./src/assets/bottom-bar/Home.png'),
-  calendar: require('./src/assets/bottom-bar/Calendar.png'),
-  search: require('./src/assets/bottom-bar/Search.png'), 
-  tag: require('./src/assets/bottom-bar/Tag.png'),
-  homeFocused: require('./src/assets/bottom-bar/Home-Active.png'),
-  calendarFocused: require('./src/assets/bottom-bar/Calendar-Active.png'),
-  searchFocused: require('./src/assets/bottom-bar/Search-Active.png'), 
-  tagFocused: require('./src/assets/bottom-bar/Tag-Active.png'),
+  home: require('../assets/bottom-bar/Home.png'),
+  calendar: require('../assets/bottom-bar/Calendar.png'),
+  search: require('../assets/bottom-bar/Search.png'), 
+  tag: require('../assets/bottom-bar/Tag.png'),
+  homeFocused: require('../assets/bottom-bar/Home-Active.png'),
+  calendarFocused: require('../assets/bottom-bar/Calendar-Active.png'),
+  searchFocused: require('../assets/bottom-bar/Search-Active.png'), 
+  tagFocused: require('../assets/bottom-bar/Tag-Active.png'),
 }
 
 const AppNavigator = createBottomTabNavigator({
@@ -77,10 +77,4 @@ const AppNavigator = createBottomTabNavigator({
   }
 });
 
-const AppContainer = createAppContainer(AppNavigator);
-
-export default class App extends React.Component {
-  render() {
-    return ( <AppContainer/> );    
-  }
-}
+export default createAppContainer(AppNavigator);
