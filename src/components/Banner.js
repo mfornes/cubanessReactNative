@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, ImageBackground } from 'react-native';
+import LottieView from 'lottie-react-native';
 
 export default class Banner extends React.Component {
 
@@ -42,14 +43,21 @@ export default class Banner extends React.Component {
     const { error, isLoaded, url, title } = this.state;  
     console.log(isLoaded)  
     console.log(url)  
-    return (     
-      
-      <>
-        <ImageBackground source={{uri: url}} style={{flex: 2, width: '100%', height: 400, position: 'relative'}}>
-
-        </ImageBackground>      
-       
+    return !isLoaded ? (      
+      <> 
+      <ImageBackground style={{flex: 2, backgroundColor: '#9c9c9c', width: '100%', height: 400, position: 'relative'}}>
+          <LottieView source={require('../assets/Loading.json')} autoPlay loop/>
+      </ImageBackground>         
+        
       </>
+    ): (
+
+      <>
+       <ImageBackground source={{uri: url}} style={{flex: 2, width: '100%', height: 400, position: 'relative'}}>
+
+       </ImageBackground>      
+     </>
+
     );
   }
 }

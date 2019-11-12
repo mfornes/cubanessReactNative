@@ -183,7 +183,7 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
     implementation 'com.google.android.material:material:1.1.0-alpha02'
-
+    implementation project(':lottie-react-native')
 
     if (enableHermes) {
         def hermesPath = "../../node_modules/hermes-engine/android/";
