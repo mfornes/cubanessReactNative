@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ImageBackground } from 'react-native';
 
 export default class Banner extends React.Component {
 
@@ -8,38 +8,47 @@ export default class Banner extends React.Component {
     this.state = {
       error: null,
       isLoaded: false,
-      items: []
+      url: '',
+      title: '',
     };
   }
 
-  componentDidMount() {    
-    // fetch('https://facebook.github.io/react-native/movies.json')
-    // .then((response) => response.json())
-    // .then((responseJson) => {
-    //   this.setState({ isLoaded: true, items: responseJson })
-    // })
-    // .catch((error) => {
-    //   console.error(error);
-    // });
-
+  componentDidMount() {
     fetch("https://cubanessjournal.com/wp-json/cubaness/v1/recommended?_embed&lang=en")
     .then(response => response.json())
     .then((responseJson) => {
-        this.setState({ isLoaded: true, items: responseJson.items });
-      },   
-      (error) => {
-        this.setState({ isLoaded: true, error });
+      responseJson.map((item) => {
+        if(item.type === "tribe_events"){
+          console.log(item)  
+          this.setState({ 
+            isLoaded: true, 
+            url: item.image.url,
+            title: item.title,          
+          });
+        }
+      })  
+
       }
     ).catch((error) => {
+      this.setState({ isLoaded: false, error: error });
       console.error(error);
+      onsole.log(error) 
     });
 
   }
   
 
   render() {
-    return (
+    const { error, isLoaded, url, title } = this.state;  
+    console.log(isLoaded)  
+    console.log(url)  
+    return (     
+      
       <>
+        <ImageBackground source={{uri: url}} style={{flex: 2, width: '100%', height: 400, position: 'relative'}}>
+
+        </ImageBackground>      
+       
       </>
     );
   }

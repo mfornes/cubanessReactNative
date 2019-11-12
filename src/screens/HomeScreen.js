@@ -19,6 +19,7 @@ import {Column as Col, Row} from 'react-native-flexbox-grid';
 import styled from 'styled-components';
 
 import MoreEvents from '../components/MoreEvents'
+import Banner from '../components/Banner'
 
 var {height, width} = Dimensions.get('window');
 
@@ -28,100 +29,38 @@ export default class HomeScreen extends React.Component {
     
     return (
       <>
-        
+       <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
+          <View style={{flex: 1, backgroundColor: 'white'}}>
+              <StatusBar
+                translucent={true}
+                backgroundColor={'rgba(0, 0, 0, 0.3)'}
+                barStyle={'light-content'}
+              />
+            
+              <ScrollView
+                style={{flex: 1}}
+                scrollEventThrottle={200}
+                directionalLockEnabled={true}
+              >
+                    <Banner></Banner> 
+                    <View style={{flex: 2, backgroundColor: 'white', position: 'absolute', top: 380, left: -50, width: 500, 
+                    height: 250, transform: [{rotate: '5deg'}]}}>
+                        <View style={{flex: 2, backgroundColor: 'white', width: '100%', top: 25,
+                    transform: [{rotate: '-5deg'}]}}>
+                          
+                    </View>
+                    </View> 
+
+              </ScrollView>
+          </View>
+      </SafeAreaView>
+            
       </>
   );    
   }
 }
 
-// .wrapper {
-//   background: url(./1.png);
-//   width: 400px;
-//   height: 400px;
-//   overflow: hidden;
-//   /*border: 10px solid black;*/
-//   position: relative;
-// }
-
-// .cut {
-//   background: #fff;
-//   position:absolute;
-//   top: 300px;
-//   left: -50px;
-//   width: 500px;
-//   height: 300px;
-//   transform-origin: center top;
-//   transform: rotate(8deg);
-// }
-
-
-const styles = StyleSheet.create({
-  img: {  
-    width: width,
-    height: 300,
-  },
-  section: {
-    backgroundColor: 'white',
-    width: 500,
-    height: 300,
-    transform: [{rotate: '8deg'}],
-  }
-
- 
-});
-
    {/* <MultiSelectList  data={[{src: images, id: '1'}]} >
           
         </MultiSelectList> */}
-{/* <Row size={12}>
-<Col sm={6} md={4} lg={3}>
-                        <Card>
-          <CardImage 
-            source={{uri: 'http://bit.ly/2GfzooV'}} 
-            
-          />
-          <CardTitle
-            subtitle="Number 6"
-          />
-          <CardContent text="Clifton, Western Cape" />                           
-        </Card>
-</Col>
-<Col sm={6} md={4} lg={3}>
-                          <Card>
-            <CardImage 
-              source={{uri: 'http://bit.ly/2GfzooV'}} 
-             
-            />
-            <CardTitle
-              subtitle="Number 6"
-            />
-            <CardContent text="Clifton, Western Cape" />                            
-          </Card>
-</Col>
-
-<Col sm={6} md={4} lg={3}>
-                        <Card>
-          <CardImage 
-            source={{uri: 'http://bit.ly/2GfzooV'}} 
-            
-          />
-          <CardTitle
-            subtitle="Number 6"
-          />
-          <CardContent text="Clifton, Western Cape" />                           
-        </Card>
-</Col>
-
-<Col sm={6} md={4} lg={3}>
-                        <Card>
-          <CardImage 
-            source={{uri: 'http://bit.ly/2GfzooV'}} 
-            
-          />
-          <CardTitle
-            subtitle="Number 6"
-          />
-          <CardContent text="Clifton, Western Cape" />                           
-        </Card>
-</Col>
-</Row>    */}
+ 
